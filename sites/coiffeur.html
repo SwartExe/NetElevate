@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elégance - Salon de Coiffure Haut de Gamme</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;500;600&display=swap');
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                        url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center;
+            background-size: cover;
+        }
+
+        .service-card {
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .service-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .service-card:hover {
+            transform: translateY(-10px) !important;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .team-card {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.6s ease;
+        }
+        .team-card.animate {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .team-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-image {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        .gallery-image.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .gallery-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        .fade-in.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+        .slide-in-left.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+        .slide-in-right.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .header-hidden {
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+        .header-visible {
+            transform: translateY(0);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #d4a373;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 bg-white shadow-md header-hidden">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold text-amber-800">
+                    Elégance
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#accueil" class="nav-link text-gray-700 hover:text-amber-600 transition">Accueil</a>
+                    <a href="#services" class="nav-link text-gray-700 hover:text-amber-600 transition">Services</a>
+                    <a href="#equipe" class="nav-link text-gray-700 hover:text-amber-600 transition">Notre Équipe</a>
+                    <a href="#galerie" class="nav-link text-gray-700 hover:text-amber-600 transition">Galerie</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-amber-600 transition">Contact</a>
+                </nav>
+                <button class="md:hidden text-gray-700" id="mobile-menu-button">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-white hidden flex-col items-center justify-center space-y-8">
+        <button id="close-menu" class="absolute top-6 right-6 text-2xl text-gray-700">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="#accueil" class="text-2xl text-gray-700 hover:text-amber-600 transition">Accueil</a>
+        <a href="#services" class="text-2xl text-gray-700 hover:text-amber-600 transition">Services</a>
+        <a href="#equipe" class="text-2xl text-gray-700 hover:text-amber-600 transition">Notre Équipe</a>
+        <a href="#galerie" class="text-2xl text-gray-700 hover:text-amber-600 transition">Galerie</a>
+        <a href="#contact" class="text-2xl text-gray-700 hover:text-amber-600 transition">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero pt-32 pb-40 text-white text-center">
+        <div class="container mx-auto px-6">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 fade-in" data-delay="100">Elégance</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto fade-in" data-delay="300">Votre salon de coiffure haut de gamme à Paris</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 fade-in" data-delay="500">
+                <a href="#contact" class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-lg transition transform hover:scale-105">Prendre rendez-vous</a>
+                <a href="#services" class="bg-white hover:bg-gray-100 text-amber-600 px-8 py-3 rounded-lg transition transform hover:scale-105">Nos services</a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-0 right-0 text-center">
+            <a href="#presentation" class="inline-block animate-bounce">
+                <i class="fas fa-chevron-down text-2xl text-white opacity-70"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="presentation" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10 slide-in-left" data-delay="100">
+                    <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80" 
+                         alt="Intérieur du salon Elégance" 
+                         class="rounded-lg shadow-lg w-full h-auto floating">
+                </div>
+                <div class="md:w-1/2 slide-in-right" data-delay="300">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Notre Salon</h2>
+                    <p class="text-gray-600 mb-4">
+                        Fondé en 2010 par Sophie Laurent, Elégance est bien plus qu'un simple salon de coiffure. 
+                        C'est un lieu où l'art de la coiffure rencontre l'excellence du service, dans un cadre raffiné et chaleureux.
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        Notre équipe de professionnels passionnés se tient à votre écoute pour sublimer votre beauté naturelle 
+                        grâce à des techniques innovantes et des produits de qualité, soigneusement sélectionnés pour leur respect 
+                        de vos cheveux et de l'environnement.
+                    </p>
+                    <div class="flex items-center text-gray-600">
+                        <i class="fas fa-map-marker-alt text-amber-600 mr-2"></i>
+                        <span>24 Avenue George V, 75008 Paris</span>
+                    </div>
+                    <div class="flex items-center text-gray-600 mt-2">
+                        <i class="fas fa-phone-alt text-amber-600 mr-2"></i>
+                        <span>01 47 23 54 21</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-16 fade-in">Nos Prestations</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Femmes -->
+                <div>
+                    <h3 class="text-2xl font-bold text-amber-700 mb-6 border-b pb-2 fade-in" data-delay="100">Pour Elles</h3>
+                    <div class="space-y-6">
+                        <div class="service-card bg-white p-6 rounded-lg shadow-md" data-delay="100">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-gray-800">Coupe & Brushing</h4>
+                                <span class="font-bold text-amber-600">65€</span>
+                            </div>
+                            <p class="text-gray-600 text-sm">Coupe personnalisée suivie d'un brushing soigné pour un résultat lumineux</p>
+                        </div>
+                        <div class="service-card bg-white p-6 rounded-lg shadow-md" data-delay="200">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-gray-800">Coloration</h4>
+                                <span class="font-bold text-amber-600">85€</span>
+                            </div>
+                            <p class="text-gray-600 text-sm">Coloration professionnelle avec produits sans ammoniaque</p>
+                        </div>
+                        <div class="service-card bg-white p-6 rounded-lg shadow-md" data-delay="300">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-gray-800">Soin complet</h4>
+                                <span class="font-bold text-amber-600">120€</span>
+                            </div>
+                            <p class="text-gray-600 text-sm">Coupe, coloration et soin nutritif pour des cheveux resplendissants</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hommes -->
+                <div>
+                    <h3 class="text-2xl font-bold text-amber-700 mb-6 border-b pb-2 fade-in" data-delay="200">Pour Eux</h3>
+                    <div class="space-y-6">
+                        <div class="service-card bg-white p-6 rounded-lg shadow-md" data-delay="200">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-gray-800">Coupe homme</h4>
+                                <span class="font-bold text-amber-600">45€</span>
+                            </div>
+                            <p class="text-gray-600 text-sm">Coupe masculine traditionnelle ou moderne selon vos envies</p>
+                        </div>
+                        <div class="service-card bg-white p-6 rounded-lg shadow-md" data-delay="300">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-gray-800">Barbe</h4>
+                                <span class="font-bold text-amber-600">35€</span>
+                            </div>
+                            <p class="text-gray-600 text-sm">Taille et mise en forme de la barbe avec soin hydratant</p>
+                        </div>
+                        <div class="service-card bg-white p-6 rounded-lg shadow-md" data-delay="400">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-gray-800">Complet</h4>
+                                <span class="font-bold text-amber-600">70€</span>
+                            </div>
+                            <p class="text-gray-600 text-sm">Coupe et entretien de barbe avec massage du cuir chevelu</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Spécial -->
+                <div>
+                    <h3 class="text-2xl font-bold text-amber-700 mb-6 border-b pb-2 fade-in" data-delay="300">Soins Spéciaux</h3>
+                    <div class="space-y-6">
+                        <div class="service-card bg-white p-6 rounded-lg shadow-md" data-delay="300">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-gray-800">Soin kératine</h4>
+                                <span class="font-bold text-amber-600">150€</span>
+                            </div>
+                            <p class="text-gray-600 text-sm">Traitement restructurant pour cheveux abîmés ou frisés</p>
+                        </div>
+                        <div class="service-card bg-white p-6 rounded-lg shadow-md" data-delay="400">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-gray-800">Lissage brésilien</h4>
+                                <span class="font-bold text-amber-600">180€</span>
+                            </div>
+                            <p class="text-gray-600 text-sm">Lissage professionnel durable (3 à 5 mois)</p>
+                        </div>
+                        <div class="service-card bg-white p-6 rounded-lg shadow-md" data-delay="500">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-bold text-gray-800">Balayage</h4>
+                                <span class="font-bold text-amber-600">110€</span>
+                            </div>
+                            <p class="text-gray-600 text-sm">Effet soleil naturel avec mèches soigneusement placées</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="equipe" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-16 fade-in">Notre Équipe</h2>
+            
+            <div class="grid md:grid-cols-3 gap-10">
+                <!-- Coiffeuse -->
+                <div class="team-card text-center" data-delay="100">
+                    <div class="rounded-full overflow-hidden w-48 h-48 mx-auto mb-6 shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                             alt="Sophie Laurent" 
+                             class="w-full h-full object-cover transition duration-500">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-1">Sophie Laurent</h3>
+                    <p class="text-amber-600 font-medium mb-3">Directrice & Coiffeuse</p>
+                    <p class="text-gray-600">
+                        Fondatrice du salon, Sophie est spécialisée dans les coupes féminines et les colorations. 
+                        Formée à Paris et New York, elle apporte son expertise internationale.
+                    </p>
+                </div>
+                
+                <!-- Coiffeur -->
+                <div class="team-card text-center" data-delay="300">
+                    <div class="rounded-full overflow-hidden w-48 h-48 mx-auto mb-6 shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                             alt="Thomas Moreau" 
+                             class="w-full h-full object-cover transition duration-500">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-1">Thomas Moreau</h3>
+                    <p class="text-amber-600 font-medium mb-3">Coiffeur Barbier</p>
+                    <p class="text-gray-600">
+                        Spécialiste des coupes masculines et de l'entretien de la barbe, Thomas saura vous conseiller 
+                        pour un look parfaitement adapté à votre morphologie.
+                    </p>
+                </div>
+                
+                <!-- Coloriste -->
+                <div class="team-card text-center" data-delay="500">
+                    <div class="rounded-full overflow-hidden w-48 h-48 mx-auto mb-6 shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1376&q=80" 
+                             alt="Camille Dubois" 
+                             class="w-full h-full object-cover transition duration-500">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-1">Camille Dubois</h3>
+                    <p class="text-amber-600 font-medium mb-3">Coloriste</p>
+                    <p class="text-gray-600">
+                        Experte en colorations et techniques de balayage, Camille crée des nuances uniques 
+                        qui mettent en valeur votre teint et votre personnalité.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="galerie" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-16 fade-in">Notre Univers</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="gallery-image rounded-lg overflow-hidden shadow-md" data-delay="100">
+                    <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80" 
+                         alt="Intérieur du salon" 
+                         class="w-full h-48 md:h-64 object-cover transition duration-500">
+                </div>
+                <div class="gallery-image rounded-lg overflow-hidden shadow-md" data-delay="200">
+                    <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" 
+                         alt="Coupe femme" 
+                         class="w-full h-48 md:h-64 object-cover transition duration-500">
+                </div>
+                <div class="gallery-image rounded-lg overflow-hidden shadow-md" data-delay="300">
+                    <img src="https://images.unsplash.com/photo-1561526116-e2460f4d40a8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Coupe homme" 
+                         class="w-full h-48 md:h-64 object-cover transition duration-500">
+                </div>
+                <div class="gallery-image rounded-lg overflow-hidden shadow-md" data-delay="400">
+                    <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Soin capillaire" 
+                         class="w-full h-48 md:h-64 object-cover transition duration-500">
+                </div>
+                <div class="gallery-image rounded-lg overflow-hidden shadow-md" data-delay="100">
+                    <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Coloration" 
+                         class="w-full h-48 md:h-64 object-cover transition duration-500">
+                </div>
+                <div class="gallery-image rounded-lg overflow-hidden shadow-md" data-delay="200">
+                    <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" 
+                         alt="Brushing" 
+                         class="w-full h-48 md:h-64 object-cover transition duration-500">
+                </div>
+                <div class="gallery-image rounded-lg overflow-hidden shadow-md" data-delay="300">
+                    <img src="https://images.unsplash.com/photo-1595476107868-d93d0b8c9858?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                         alt="Produits de coiffure" 
+                         class="w-full h-48 md:h-64 object-cover transition duration-500">
+                </div>
+                <div class="gallery-image rounded-lg overflow-hidden shadow-md" data-delay="400">
+                    <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                         alt="Coiffure de soirée" 
+                         class="w-full h-48 md:h-64 object-cover transition duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Hours Section -->
+    <section id="contact" class="py-20 bg-gray-800 text-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="slide-in-left" data-delay="100">
+                    <h2 class="text-3xl font-bold mb-6">Nous Contacter</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-amber-400 mt-1 mr-4"></i>
+                            <div>
+                                <h3 class="font-bold">Adresse</h3>
+                                <p>24 Avenue George V<br>75008 Paris, France</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-phone-alt text-amber-400 mt-1 mr-4"></i>
+                            <div>
+                                <h3 class="font-bold">Téléphone</h3>
+                                <p>01 47 23 54 21</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-envelope text-amber-400 mt-1 mr-4"></i>
+                            <div>
+                                <h3 class="font-bold">Email</h3>
+                                <p>contact@elegance-coiffure.fr</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <h3 class="font-bold mb-4">Suivez-nous</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-amber-400 hover:text-white transition transform hover:scale-125"><i class="fab fa-facebook-f text-xl"></i></a>
+                            <a href="#" class="text-amber-400 hover:text-white transition transform hover:scale-125"><i class="fab fa-instagram text-xl"></i></a>
+                            <a href="#" class="text-amber-400 hover:text-white transition transform hover:scale-125"><i class="fab fa-pinterest text-xl"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slide-in-right" data-delay="300">
+                    <h2 class="text-3xl font-bold mb-6">Horaires d'Ouverture</h2>
+                    <div class="space-y-2">
+                        <div class="flex justify-between py-2 border-b border-gray-700">
+                            <span>Lundi</span>
+                            <span>Fermé</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b border-gray-700">
+                            <span>Mardi - Vendredi</span>
+                            <span>10:00 - 19:00</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b border-gray-700">
+                            <span>Samedi</span>
+                            <span>09:00 - 18:00</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b border-gray-700">
+                            <span>Dimanche</span>
+                            <span>10:00 - 15:00</span>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <h3 class="font-bold mb-4">Réservation conseillée</h3>
+                        <p>Pour garantir votre créneau, nous vous recommandons de réserver votre rendez-vous au moins 48h à l'avance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <div class="h-96 w-full fade-in" data-delay="100">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.996388625087!2d2.300215315674246!3d48.85139657928752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fc1e3b9e8a5%3A0x5a2c4a7a3b3b3b3b!2s24%20Av.%20George%20V%2C%2075008%20Paris!5e0!3m2!1sfr!2sfr!4v1680000000000!5m2!1sfr!2sfr" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-gray-900 text-gray-400">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0 fade-in" data-delay="100">
+                    <div class="text-2xl font-bold text-white mb-2">Elégance</div>
+                    <p>© 2023 Tous droits réservés</p>
+                </div>
+                <div class="flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0 text-center fade-in" data-delay="300">
+                    <a href="#" class="hover:text-white transition">Mentions légales</a>
+                    <a href="#" class="hover:text-white transition">Politique de confidentialité</a>
+                    <a href="#" class="hover:text-white transition">Conditions générales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header show/hide on scroll
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            // Show header when scrolling up
+            if (currentScroll <= 0) {
+                header.classList.remove('header-visible');
+                header.classList.add('header-hidden');
+                return;
+            }
+            
+            if (currentScroll > lastScroll && !header.classList.contains('header-hidden')) {
+                // Scrolling down
+                header.classList.remove('header-visible');
+                header.classList.add('header-hidden');
+            } else if (currentScroll < lastScroll && header.classList.contains('header-hidden')) {
+                // Scrolling up
+                header.classList.remove('header-hidden');
+                header.classList.add('header-visible');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuButton = document.getElementById('close-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+            document.body.style.overflow = '';
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                if (mobileMenu.classList.contains('flex')) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    document.body.style.overflow = '';
+                }
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Scroll animations
+        function checkScroll() {
+            const elements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .service-card, .team-card, .gallery-image');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementBottom = element.getBoundingClientRect().bottom;
+                const delay = element.getAttribute('data-delay') || 0;
+                
+                if (elementTop < window.innerHeight - 100 && elementBottom > 0) {
+                    setTimeout(() => {
+                        element.classList.add('animate');
+                    }, delay * 100);
+                }
+            });
+        }
+
+        // Initial check
+        document.addEventListener('DOMContentLoaded', checkScroll);
+        window.addEventListener('scroll', checkScroll);
+    </script>
+</body>
+</html>

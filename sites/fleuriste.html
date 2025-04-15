@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fleuriste Les Pétales - Créations florales à Lyon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1526047932273-341f2a7631f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80') no-repeat center center;
+            background-size: cover;
+        }
+        
+        .bouquet-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .bouquet-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .service-card:hover {
+            transform: scale(1.03);
+        }
+        
+        .gallery-image {
+            transition: all 0.4s ease;
+        }
+        
+        .gallery-image:hover {
+            transform: scale(1.05);
+            z-index: 10;
+        }
+        
+        .bg-pastel {
+            background-color: #f8f3ff;
+        }
+        
+        .text-pink {
+            color: #d14d8b;
+        }
+        
+        .bg-pink {
+            background-color: #d14d8b;
+        }
+        
+        .border-pink {
+            border-color: #d14d8b;
+        }
+        
+        .text-green {
+            color: #4a8b6d;
+        }
+        
+        .bg-green {
+            background-color: #4a8b6d;
+        }
+    </style>
+</head>
+<body class="bg-pastel">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold text-green">
+                    <span class="text-pink">Les</span> Pétales
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#accueil" class="text-gray-700 hover:text-pink transition">Accueil</a>
+                    <a href="#creations" class="text-gray-700 hover:text-pink transition">Nos Créations</a>
+                    <a href="#services" class="text-gray-700 hover:text-pink transition">Services</a>
+                    <a href="#ateliers" class="text-gray-700 hover:text-pink transition">Ateliers</a>
+                    <a href="#contact" class="text-gray-700 hover:text-pink transition">Contact</a>
+                </nav>
+                <button class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero py-32 text-white text-center">
+        <div class="container mx-auto px-6">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">Fleuriste Les Pétales</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">L'art floral au naturel depuis 2010</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#creations" class="bg-pink hover:bg-pink/90 text-white px-8 py-3 rounded-lg transition">Nos bouquets</a>
+                <a href="#contact" class="bg-white hover:bg-gray-100 text-pink px-8 py-3 rounded-lg transition">Nous contacter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <img src="https://images.unsplash.com/photo-1606041008023-472dfb5e530f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1588&q=80" 
+                         alt="Boutique Les Pétales" 
+                         class="rounded-lg shadow-xl w-full h-auto">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Notre boutique</h2>
+                    <p class="text-gray-600 mb-4">
+                        Fondé en 2010 par Amélie Rousseau, notre fleuriste est un havre de paix végétal au cœur de Lyon. 
+                        Nous sélectionnons avec soin des fleurs locales et de saison pour créer des compositions uniques 
+                        qui racontent une histoire.
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        Notre équipe de fleuristes passionnés met tout son savoir-faire et sa créativité au service 
+                        de vos émotions. Que ce soit pour un mariage, un anniversaire ou simplement pour le plaisir, 
+                        nous transformons vos envies en véritables œuvres florales.
+                    </p>
+                    <div class="flex items-center text-gray-600">
+                        <i class="fas fa-map-marker-alt text-pink mr-2"></i>
+                        <span>24 Rue de la République, 69002 Lyon</span>
+                    </div>
+                    <div class="flex items-center text-gray-600 mt-2">
+                        <i class="fas fa-phone-alt text-pink mr-2"></i>
+                        <span>04 78 37 12 89</span>
+                    </div>
+                    <div class="flex items-center text-gray-600 mt-2">
+                        <i class="fas fa-envelope text-pink mr-2"></i>
+                        <span>contact@lespetales-lyon.fr</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bouquets Section -->
+    <section id="creations" class="py-20 bg-pastel">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-16">Nos Créations</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Bouquet 1 -->
+                <div class="bouquet-card bg-white rounded-xl overflow-hidden">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1482442120256-9c03866de390?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Bouquet printanier" 
+                             class="w-full h-full object-cover transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Printemps Éternel</h3>
+                        <p class="text-gray-600 mb-4">Un mélange harmonieux de pivoines, roses et renoncules pour célébrer le renouveau.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-pink">65€</span>
+                            <button class="text-sm bg-green hover:bg-green/90 text-white px-4 py-2 rounded-lg transition">Commander</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bouquet 2 -->
+                <div class="bouquet-card bg-white rounded-xl overflow-hidden">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1527061011665-3652c757a4d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1526&q=80" 
+                             alt="Bouquet romantique" 
+                             class="w-full h-full object-cover transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Romance à Paris</h3>
+                        <p class="text-gray-600 mb-4">Roses rouges et gypsophiles pour déclarer votre flamme avec élégance.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-pink">75€</span>
+                            <button class="text-sm bg-green hover:bg-green/90 text-white px-4 py-2 rounded-lg transition">Commander</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bouquet 3 -->
+                <div class="bouquet-card bg-white rounded-xl overflow-hidden">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1563170351-82e9ba0c2934?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Bouquet champêtre" 
+                             class="w-full h-full object-cover transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Champêtre</h3>
+                        <p class="text-gray-600 mb-4">Un mélange sauvage de fleurs des champs pour une touche naturelle et bohème.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-pink">55€</span>
+                            <button class="text-sm bg-green hover:bg-green/90 text-white px-4 py-2 rounded-lg transition">Commander</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block border-2 border-pink text-pink hover:bg-pink hover:text-white px-8 py-3 rounded-lg transition">Voir toutes nos créations</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-16">Nos Services</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-pastel p-8 rounded-xl text-center">
+                    <div class="text-4xl text-pink mb-4">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Livraison Express</h3>
+                    <p class="text-gray-600">
+                        Livraison le jour même à Lyon et sa périphérie pour toutes vos commandes passées avant 14h.
+                    </p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-pastel p-8 rounded-xl text-center">
+                    <div class="text-4xl text-pink mb-4">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Abonnement floral</h3>
+                    <p class="text-gray-600">
+                        Recevez chaque mois un bouquet surprise composé de fleurs de saison.
+                    </p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-pastel p-8 rounded-xl text-center">
+                    <div class="text-4xl text-pink mb-4">
+                        <i class="fas fa-ring"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Événements spéciaux</h3>
+                    <p class="text-gray-600">
+                        Décoration florale sur mesure pour mariages, anniversaires et événements d'entreprise.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workshops Section -->
+    <section id="ateliers" class="py-20 bg-green text-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h2 class="text-3xl font-bold mb-6">Ateliers Floraux</h2>
+                    <p class="mb-4">
+                        Apprenez l'art de la composition florale lors de nos ateliers animés par nos fleuristes experts.
+                        Découvrez les techniques pour créer des bouquets harmonieux et prolongez le plaisir des fleurs chez vous.
+                    </p>
+                    <p class="mb-6">
+                        Nos ateliers ont lieu tous les samedis matin dans notre boutique. Le matériel et les fleurs sont fournis.
+                        Groupes de 6 personnes maximum pour un accompagnement personnalisé.
+                    </p>
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-clock mr-2"></i>
+                        <span>Tous les samedis de 10h à 12h</span>
+                    </div>
+                    <div class="flex items-center mb-2">
+                        <i class="fas fa-euro-sign mr-2"></i>
+                        <span>60€ par personne (fleurs comprises)</span>
+                    </div>
+                    <button class="mt-6 bg-pink hover:bg-pink/90 text-white px-8 py-3 rounded-lg transition">
+                        S'inscrire à un atelier
+                    </button>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Atelier floral" 
+                         class="rounded-lg shadow-xl w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-16">Notre Univers</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="gallery-image rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1459156212016-c812468e2115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Boutique" 
+                         class="w-full h-48 object-cover">
+                </div>
+                <div class="gallery-image rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1563179243-7119dbd5a5e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Fleurs" 
+                         class="w-full h-48 object-cover">
+                </div>
+                <div class="gallery-image rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1557090495-fc9312e77b28?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                         alt="Mariage" 
+                         class="w-full h-48 object-cover">
+                </div>
+                <div class="gallery-image rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1519379073136-2a85bd6a7e1c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Détail floral" 
+                         class="w-full h-48 object-cover">
+                </div>
+                <div class="gallery-image rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1519379073136-2a85bd6a7e1c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Atelier" 
+                         class="w-full h-48 object-cover">
+                </div>
+                <div class="gallery-image rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1563179243-7119dbd5a5e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Bouquet" 
+                         class="w-full h-48 object-cover">
+                </div>
+                <div class="gallery-image rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1459156212016-c812468e2115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Décoration" 
+                         class="w-full h-48 object-cover">
+                </div>
+                <div class="gallery-image rounded-lg overflow-hidden shadow-md">
+                    <img src="https://images.unsplash.com/photo-1557090495-fc9312e77b28?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                         alt="Boutique extérieur" 
+                         class="w-full h-48 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-pastel">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 p-8 md:p-12">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-6">Contactez-nous</h2>
+                        <form>
+                            <div class="mb-6">
+                                <label for="name" class="block text-gray-700 mb-2">Nom complet</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink focus:border-transparent" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="email" class="block text-gray-700 mb-2">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink focus:border-transparent" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 mb-2">Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink focus:border-transparent"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-pink hover:bg-pink/90 text-white px-6 py-3 rounded-lg transition">
+                                Envoyer le message
+                            </button>
+                        </form>
+                    </div>
+                    <div class="md:w-1/2 bg-green text-white p-8 md:p-12">
+                        <h2 class="text-3xl font-bold mb-6">Horaires & Contact</h2>
+                        <div class="mb-8">
+                            <h3 class="text-xl font-bold mb-4">Horaires d'ouverture</h3>
+                            <div class="space-y-2">
+                                <div class="flex justify-between py-2 border-b border-green-300">
+                                    <span>Lundi - Vendredi</span>
+                                    <span>9h - 19h</span>
+                                </div>
+                                <div class="flex justify-between py-2 border-b border-green-300">
+                                    <span>Samedi</span>
+                                    <span>9h - 20h</span>
+                                </div>
+                                <div class="flex justify-between py-2">
+                                    <span>Dimanche</span>
+                                    <span>10h - 14h</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">Nous trouver</h3>
+                            <div class="flex items-start mb-4">
+                                <i class="fas fa-map-marker-alt mt-1 mr-4"></i>
+                                <div>
+                                    <p>24 Rue de la République</p>
+                                    <p>69002 Lyon, France</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-phone-alt mr-4"></i>
+                                <span>04 78 37 12 89</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope mr-4"></i>
+                                <span>contact@lespetales-lyon.fr</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <div class="h-96 w-full">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2783.349347316709!2d4.834223315569377!3d45.764179979105576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4ea8b6b1c5af1%3A0x50b82c368941a50!2s24%20Rue%20de%20la%20R%C3%A9publique%2C%2069002%20Lyon!5e0!3m2!1sfr!2sfr!4v1620000000000!5m2!1sfr!2sfr" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-gray-900 text-gray-400">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="text-2xl font-bold text-white mb-2">
+                        <span class="text-pink">Les</span> <span class="text-green">Pétales</span>
+                    </div>
+                    <p>© 2023 Tous droits réservés</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p>Fleuriste artisanal à Lyon - Créations florales sur mesure</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script for mobile menu toggle (would need to be implemented fully)
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('.md\\:hidden');
+            // In a real implementation, you would add click handler to show mobile menu
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
