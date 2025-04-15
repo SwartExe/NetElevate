@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Zones à ne pas indexer si jamais tu ajoutes ces dossiers plus tard
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /private/
+Disallow: /tmp/
